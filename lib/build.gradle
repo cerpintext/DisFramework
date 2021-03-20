@@ -2,7 +2,7 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'Civilian'
+mainClassName = 'Caretaker'
 
 repositories {
     jcenter()
