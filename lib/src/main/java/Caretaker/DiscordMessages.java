@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.*;
 import net.dv8tion.jda.api.EmbedBuilder;
 
-
 public class DiscordMessages extends ListenerAdapter {
 
 	// TEXT COLOURS
@@ -60,10 +59,14 @@ public class DiscordMessages extends ListenerAdapter {
 		}
 	}
 
-	public static void PostTwitchLive(EmbedBuilder embed) {
+	public static void PostTwitchLive(EmbedBuilder goingLiveEmbed, String streamName) {
 //		Caretaker.jda.getTextChannelById("788926831948464148").sendMessage("Ins0mnia is going live now <@&748788513872412702>").queue();
-		Caretaker.jda.getTextChannelById("788926831948464148").sendMessage(embed.build()).queue();
-		embed.clear();
+		String goingLiveNow = (streamName + " is going live now");
+        if (streamName.equals("sozapidgeon")) {
+            goingLiveNow = goingLiveNow + " <@&817997074359779339>";
+        }
+        Caretaker.jda.getTextChannelById("788926831948464148").sendMessage(goingLiveNow).embed(goingLiveEmbed.build()).queue();
+		goingLiveEmbed.clear();
 	}
 
 	public static void PostMessage(String message) {
