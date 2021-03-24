@@ -40,7 +40,7 @@ public class TwitchManager {
             goingLive.setTitle(streamTitle, url);
             goingLive.setAuthor(streamName + " just went live!", null, streamUserPictureUrl);
             goingLive.setThumbnail(streamUserPictureUrl);
-            goingLive.addField("Game", event.getStream().getGameName() + " mention: <@&817997074359779339>", false);
+            goingLive.addField("Game", event.getStream().getGameName(), false);
 
             DiscordMessages.PostTwitchLive(goingLive, streamName);
 
